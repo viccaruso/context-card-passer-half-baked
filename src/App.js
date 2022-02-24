@@ -51,7 +51,7 @@ function App() {
       </section>
       <section>
         {
-          selectedCard && <ExecutePassButton passCard={passCard} from={from} to={to} selectedCard={selectedCard} />
+          selectedCard && <ExecutePassButton passCard={passCard} />
         }
       </section>
     </div>
