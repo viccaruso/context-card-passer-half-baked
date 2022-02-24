@@ -1,7 +1,5 @@
 import './App.css';
-import initialCards from './cards-data';
 import Player from './Player';
-import { useState } from 'react';
 import ExecutePassButton from './ExecutePassButton';
 import CardList from './CardList';
 import { useGameContext } from './GameProvider';
@@ -14,7 +12,7 @@ function App() {
     playerTwoHand, setPlayerTwoHand,
     playerThreeHand, setPlayerThreeHand,
     from, setFrom,
-    to, setTo } = useGameContext();
+    to, } = useGameContext();
 
   function findCardIndex(value, suit, cards) {
     return cards.findIndex(card => card.value === value && card.suit === suit);
@@ -46,9 +44,9 @@ function App() {
     <div className="App">
       <section>
         {/* if the player names are numbers, that will make our life easier later because we can reuse numbers as arrays. Note that this will make our app brittle! */}
-        <Player to={to} player={1} hand={playerOneHand} setFrom={setFrom} selectedCard={selectedCard} setTo={setTo} setSelectedCard={setSelectedCard} />
-        <Player to={to} player={2} hand={playerTwoHand} setFrom={setFrom} selectedCard={selectedCard} setTo={setTo} setSelectedCard={setSelectedCard} />
-        <Player to={to} player={3} hand={playerThreeHand} setFrom={setFrom} selectedCard={selectedCard} setTo={setTo} setSelectedCard={setSelectedCard} />
+        <Player player={1} hand={playerOneHand} />
+        <Player player={2} hand={playerTwoHand} />
+        <Player player={3} hand={playerThreeHand} />
         <CardList cards={deck} selectedCard={selectedCard} setSelectedCard={setSelectedCard} setFrom={setFrom} player={'deck'} />
       </section>
       <section>
